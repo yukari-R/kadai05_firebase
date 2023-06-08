@@ -1,0 +1,245 @@
+body{
+    margin:0;
+    padding:0;
+    text-align:left;
+    font-size: 18px;
+    width:100%;
+}
+header{
+    background-color: rosybrown;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    padding-left: 100px;
+    padding-right: 100px;
+    border-bottom: 1px solid whitesmoke;
+    border-top: 1px solid whitesmoke;
+    text-align: center;
+}
+h1{
+    font-size: 18px;
+    font-family: 游ゴシック体;
+    color: white;
+}
+main{
+    width:100%;
+    display: block;
+    position:relative;
+}
+footer{
+    background-color: #fff;
+    text-align: center;
+}
+
+.gram{
+    display: block;
+    width: 50px;
+    font-size: 14px;
+    font-family: 游ゴシック体;
+    border-bottom:1px solid #fff;
+}
+
+.p_datetime{
+    font-size: 14px;
+    font-family: 游ゴシック体;
+    text-align: right;
+}
+
+.p_what{
+    font-size: 14px;
+    font-family: 游ゴシック体;
+    text-align: right;
+}
+
+.p_number{
+    font-size: 14px;
+    font-family: 游ゴシック体;
+    text-align: right;
+    margin-bottom: 30px;
+}
+
+.p_comment{
+    font-size: 14px;
+    font-family: 游ゴシック体;
+    text-align: left;
+    margin-bottom: 30px;
+    background-color: #B7B5AA;
+    border-radius: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    width: 300px;
+}
+
+img{
+    width: 32px;
+    height: 32px;
+}
+
+.input{
+    padding: 30px;
+    display: flex;
+    width: 100%;
+    font-family: 游ゴシック体;
+    text-align: center;
+    justify-content: center;
+    align-items: baseline;
+    gap: 30px;
+    
+}
+
+.fd_innner{
+    display: flex;
+    gap: 10px;
+}
+
+.dt_innner{
+    display: flex;
+    gap: 10px;
+}
+
+.chd_innner{
+    display: flex;
+    gap: 30px;
+}
+
+#memo{
+    width: 150px;
+    height: 20px;
+    font-size:80%;
+    box-shadow: 3px 3px 3px 3px rosybrown;
+    background-color:rgb(241, 239, 239);
+    font-family: 游ゴシック体;
+}
+
+#number{
+    width: 50px;
+    height: 20px;
+    font-size:80%;
+    box-shadow: 3px 3px 3px 3px rosybrown;
+    background-color:rgb(241, 239, 239);
+    font-family: 游ゴシック体;
+    
+}
+
+.ul_btn{
+    width: 300px;
+    margin: 0 auto;
+}
+
+#save{
+    list-style-type:none;
+    border: 1px solid white;
+    background-color: rosybrown;
+    display:table-cell;  /* 定義 */
+    cursor: pointer;
+    color: white;
+    width: 300px;
+    text-align: center;
+    font-size: 14px;
+    font-family: 游ゴシック体;
+    border-radius: 10px;
+}
+#save:hover{
+    background: #bab4b4;
+    color:#fff;
+}
+
+
+#delete{
+    list-style-type:none;
+    border: 1px solid white;
+    background-color: #B7B5AA;
+    display:table-cell;  /* 定義 */
+    cursor: pointer;
+    color: white;
+    width: 300px;
+    text-align: center;
+    font-size: 14px;
+    font-family: 游ゴシック体;
+    border-radius: 10px;
+}
+#save:hover{
+    background: #bab4b4;
+    color:#fff;
+}
+
+#output{
+    margin: 0 auto;
+    margin-top: 60px;
+    margin-bottom: 60px;
+    width: 600px;
+    height: 400px;
+    overflow: auto;
+    background-color: #F0F0EE;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+
+.h1_comment{
+    margin-top: 60px;
+    text-align: center;
+    justify-content: center;
+    align-items: baseline;
+    font-size: 14px;
+    font-weight: bold;
+    color: #B7B5AA;
+    font-family: 游ゴシック体;
+}
+
+.comment{
+    margin: 0 auto;
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+    align-items: baseline;
+}
+
+#comment{
+    width: 280px;
+    height: 100px;
+    font-size:80%;
+    background-color:rgb(241, 239, 239);
+    font-family: 游ゴシック体;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+#send{
+    list-style-type:none;
+    border: 1px solid white;
+    background-color: #B7B5AA;
+    display:table-cell;  /* 定義 */
+    cursor: pointer;
+    color: white;
+    width: 300px;
+    text-align: center;
+    font-size: 14px;
+    font-family: 游ゴシック体;
+    border-radius: 10px;
+    margin-bottom: 30px;
+}
+#send:hover{
+    background: #bab4b4;
+    color:#fff;
+}
+
+
+#delete2{
+    list-style-type:none;
+    border: 1px solid white;
+    background-color: #B7B5AA;
+    display:table-cell;  /* 定義 */
+    cursor: pointer;
+    color: white;
+    width: 300px;
+    text-align: center;
+    font-size: 14px;
+    font-family: 游ゴシック体;
+    border-radius: 10px;
+}
+#delete2:hover{
+    background: #bab4b4;
+    color:#fff;
+}

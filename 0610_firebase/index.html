@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>食事記録</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+<header>
+<h1>今日何食べた？</h1>
+</header>
+
+<main>
+    <div class="input"><div class="dt_innner">
+        <img src="datetime.png">
+        <div class="time"><input type="date" id="date" value="2023-06-01"><input type="time" id="time" value=""></div></div>
+    <!-- <input type="text" id="key"> -->
+
+        <div class="fd"><div class="fd_innner">
+            <img src="fd.png">
+            <textarea id="memo"></textarea></div></div>
+        <div class="chd"><div class="chd_innner">
+            <img src="chd.png">
+            <input type="number" id="number" value="" step="0.1">
+            <p class="gram">g</p></div></div>
+        </div>
+
+        
+
+    <ul class="ul_btn">
+        <li id="save">記録する</li>
+    </ul>
+<div id="output">
+<!-- ここに追加データが挿入される -->
+</div>
+
+<ul class="ul_btn">
+    <li id="delete">削除する</li>
+</ul>
+
+<details>
+<summary><h1 class="h1_comment">コメントを送る</h1></summary>
+<div class="comment">
+    <textarea id="comment"></textarea></div>
+<ul class="ul_btn">
+    <li id="send">送信する</li>
+</ul>
+<ul class="ul_btn">
+    <li id="delete2">削除する</li>
+</ul>
+</details>
+
+
+</main>
+
+
+<!-- 
+<ul class="ul_btn">
+    <li id="clear">1日終わり</li>
+</ul> -->
+
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.1.0/firebase-app.js";
+        import { getDatabase, ref, push, set, onChildAdded, remove, onChildRemoved }
+            from "https://www.gstatic.com/firebasejs/9.1.0/firebase-database.js";
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+            // ************** key削除
+        };
+        const app = initializeApp(firebaseConfig);
+        const db = getDatabase(app); //RealtimeDBに接続
+        const dbRef = ref(db, "chat"); //RealtimeDB内の"chat"を使う
+        const dbRef2 = ref(db, "chat2");
+        const dbRef3 = ref(db,"storage");
+
+
+        //データ登録(Click)
+        $("#save").on("click",function(){
+            const record = {
+                date: $("#date").val(),
+                time: $("#time").val(),
+                what: $("#memo").val(),
+                number: $("#number").val(),
+            }
+            const newPostRef = push(dbRef);
+            set(newPostRef, record);
+
+            const newPostRef3 = push(dbRef3);
+            set(newPostRef3, record);
+        }
+        );
+
+        // ocChildAdded ・・・　接続の情報➕接続できた瞬間functionを実行　登録された瞬間画面上で判断。リアルタイムで通信して処理
+        onChildAdded(dbRef, function(data){
+        const record = data.val();
+        const key = data.key;
+        let h =`
+            <p class="p_datetime">${record.date}  ${record.time}</p>
+            <p class="p_number">${record.what}  ${record.number}g</p>`
+        // テンプレートリテラル,classがかける
+
+            $("#output").append(h);
+    });
+
+    $("#send").on("click",function(){
+            const com = {
+                comment: $("#comment").val(),
+            }
+            const newPostRef2 = push(dbRef2);
+            set(newPostRef2, com);
+
+            const newPostRef3 = push(dbRef3);
+            set(newPostRef3, com);
+        }
+        );
+
+    onChildAdded(dbRef2, function(data2){
+        const com = data2.val();
+        const key = data2.key;
+        let h2 =`
+            <p class="p_comment">${com.comment}</p>`
+
+            $("#output").append(h2);
+    });
+
+    $("#delete").on("click",function(){
+        remove(dbRef);
+        }
+        );
+        
+        onChildRemoved(dbRef, function(){
+            $(".p_datetime").remove();
+            $(".p_number").remove();
+            alert("削除しました");
+        });
+
+        $("#delete2").on("click",function(){
+        remove(dbRef2);
+        }
+        );
+
+        onChildRemoved(dbRef2, function(){
+            $(".p_comment").remove();
+            alert("削除しました");
+        }
+        );
+
+    </script>
