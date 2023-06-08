@@ -17,6 +17,6 @@
 　　　　　　　　のところで躓いた。YoutubeやWebサイトを検索したが、うまく情報が探せなかった
 
 ## 参考にした web サイトなど
-  - https://zero-plus.io/media/overflow/　：表示領域を超えた処理　overflow
-  - https://gihyo.jp/dev/serial/01/firebase/0010　：removeの考え方（firebase)
-  - https://www.fenet.jp/dotnet/column/language/7208/ :removeの考え方（JQuery）
+  - https://zero-plus.io/media/overflow/.  表示領域を超えた処理　overflow
+  - https://gihyo.jp/dev/serial/01/firebase/0010.  removeの考え方（firebase)
+  - https://www.fenet.jp/dotnet/column/language/7208/. removeの考え方（JQuery）
